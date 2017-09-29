@@ -17,12 +17,12 @@ public class DebugFOurteen2 extends JFrame implements ItemListener
    int feePct = 0;
    String output;
    int fee = 0;
-   public DebugFourteen2()
+   public DebugFOurteen2()
    {
       super("Pay List");
       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      setLayout(flow)
-      payMethod.addItemLisener(payMethod);
+      setLayout(flow);
+      payMethod.addItemListener(this);
       add(payList);
       add(payMethod);
       payMethod.addItem("Credit card");
@@ -32,20 +32,22 @@ public class DebugFOurteen2 extends JFrame implements ItemListener
    }
    public static void main(String[] arguments)
    {
-      JFrame cframe = new DebugFourteen2();
+      JFrame cframe = new DebugFOurteen2();
       cframe.setSize(350,150);
       cframe.setVisible(true);
    }
    @Override
-   public void itemStateChanged()
+   public void itemStateChanged(ItemEvent list)
    {
       Object source = list.getSource();
-      if(source = payMethod)
+      if(source == payMethod)
       {
          int fee = payMethod.getSelectedIndex();
-         feePct = fees[x];
+         feePct = fees[fee];
          output = feePct + " " + pctMsg;
          totFees.setText(output);
       }
    }
+
+
 }
